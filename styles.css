@@ -1,0 +1,64 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #D6EAF8;
+}
+
+h2 {
+    color: darkblue;
+    text-align: center;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    
+}
+
+.gender-section {
+    display: flex;
+    align-items: center;
+}
+
+.gender-options {
+    display: flex;
+    margin-left: 10px; 
+    margin-bottom: 12px;
+}
+
+.gender-options input[type="radio"] {
+    margin-right: 5px; 
+    margin-top: 20px ;
+}
+
+.gender-options label{
+    margin-top: 17.5px ;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: dodgerblue;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: blue;
+}
+select {
+width: 100%;
+}
