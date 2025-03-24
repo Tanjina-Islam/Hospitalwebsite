@@ -493,7 +493,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <p> Dhaka, Bangladesh </p>
 <div class="details">
    <a href=""><i class="fa fa-phone"></i> Tel: +1-4200 </a>
-<p>Email: contact@cardiacmedic.com</p>
+<p>Email: support@cardiacmedic.com</p>
 </div>
 </div>
 </div>
