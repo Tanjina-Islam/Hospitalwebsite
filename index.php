@@ -10,8 +10,8 @@
     <h2>Book Appointment</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       
-        <label for="uhid">UHID:</label>
-        <input type="text" name="uhid" placeholder="Enter UHID" required>
+        <label for="username">USERNAME:</label>
+        <input type="text" name="username" placeholder="Enter USERNAME" required> 
 
         <label for="fullname">Full Name:</label>
         <input type="text" name="fullname" required>
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $uhid = $_POST["uhid"];
+    $username = $_POST["username"];
     $fullname = $_POST["fullname"];
     $dob = $_POST["dob"];
     $gender = $_POST["gender"];
@@ -89,18 +89,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $doctor = $_POST["doctor"];
 
     
-    $checkSql = "SELECT * FROM patient WHERE uhid = '$uhid'";
+    $checkSql = "SELECT * FROM patient WHERE username = '$username'";
     $result = $conn->query($checkSql);
 
     if ($result->num_rows > 0) {
-        echo "<p>Your appointment has already been taken!</p>";
+        echo "<p>This username is already taken! Please use a different one.<p>";
+        
     } else {
        
-        $sql = "INSERT INTO patient (uhid, `Full Name`, `Date of Birth`, Gender, `Phone-Number`, `Date`, `Time`, `Select Department`, `Select Doctor`)
-                VALUES ('$uhid', '$fullname', '$dob', '$gender', '$phone', '$date', '$time', '$department', '$doctor')";
+        $sql = "INSERT INTO patient (username, `Full Name`, `Date of Birth`, Gender, `Phone-Number`, `Date`, `Time`, `Select Department`, `Select Doctor`)
+                VALUES ('$username', '$fullname', '$dob', '$gender', '$phone', '$date', '$time', '$department', '$doctor')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "<p>Your appointment has been taken!</p>";
+            echo "<script>alert('Your appointment has been taken!'); window.location.href = 'medic.php';</script>";
         } else {
             echo "<p>Something went wrong. Please try again later.</p>";
         }
