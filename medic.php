@@ -118,7 +118,7 @@
             <img src="/appoinment/cardiac.jpg" alt=""/> 
           </div>
          <a href=""><i class="fa-solid fa-heart-circle-plus"> </i> Cardiology </a>
-         <p>The Cardiology Department specializes in the diagnosis, treatment, and prevention of heart-related conditions. Cardiologists in this department manage various cardiac issues, including heart disease, hypertension, and heart failure. They may offer services such as cardiac testing, interventional procedures, and cardiac rehabilitation.</p>
+        <!-- <p>The Cardiology Department specializes in the diagnosis, treatment, and prevention of heart-related conditions. Cardiologists in this department manage various cardiac issues, including heart disease, hypertension, and heart failure. They may offer services such as cardiac testing, interventional procedures, and cardiac rehabilitation.</p> -->
       </div>
 
       <div class="box">
@@ -126,7 +126,7 @@
             <img src="/appoinment/neuro.jpg" alt=""/> 
           </div>
          <a href=""><i class="fa-solid fa-brain"></i> Neurology </a>
-         <p>The Neurology Department focuses on disorders of the nervous system, including the brain, spinal cord, and peripheral nerves. Neurologists diagnose and treat conditions such as epilepsy, stroke, multiple sclerosis, and neurological injuries. Advanced diagnostic tools like EEG and MRI may be utilized to assess and manage neurological disorders.</p>
+       <!--  <p>The Neurology Department focuses on disorders of the nervous system, including the brain, spinal cord, and peripheral nerves. Neurologists diagnose and treat conditions such as epilepsy, stroke, multiple sclerosis, and neurological injuries. Advanced diagnostic tools like EEG and MRI may be utilized to assess and manage neurological disorders.</p> -->
       </div>
 
       <div class="box">
@@ -134,7 +134,7 @@
             <img src="/appoinment/gyne.jpg" alt=""/> 
           </div>
           <a href=""><i class="fa-solid fa-venus"></i> Gynecology </a>
-          <p>The Gynecology Department is dedicated to women's reproductive health. Gynecologists provide comprehensive care for women, addressing issues such as reproductive health, gynecological cancers, fertility, and prenatal care. Services may include routine examinations, family planning, and treatment for conditions like endometriosis and polycystic ovary syndrome (PCOS).</p>
+        <!--  <p>The Gynecology Department is dedicated to women's reproductive health. Gynecologists provide comprehensive care for women, addressing issues such as reproductive health, gynecological cancers, fertility, and prenatal care. Services may include routine examinations, family planning, and treatment for conditions like endometriosis and polycystic ovary syndrome (PCOS).</p> -->
       </div>
 
       <div class="box">
@@ -142,7 +142,7 @@
             <img src="/appoinment/ophthal.jpg" alt=""/> 
           </div>
           <a href=""><i class="fa-solid fa-eye"></i> Ophthalmology </a>
-          <p>The Ophthalmology Department specializes in eye care and vision health. Ophthalmologists diagnose and treat a range of eye conditions, including cataracts, glaucoma, and retinal disorders. Services may include eye surgeries, laser treatments, and prescription of corrective lenses. Regular eye check-ups are crucial for maintaining good vision and preventing eye diseases.</p>
+         <!-- <p>The Ophthalmology Department specializes in eye care and vision health. Ophthalmologists diagnose and treat a range of eye conditions, including cataracts, glaucoma, and retinal disorders. Services may include eye surgeries, laser treatments, and prescription of corrective lenses. Regular eye check-ups are crucial for maintaining good vision and preventing eye diseases.</p> -->
       </div>
 
       <div class="box">
@@ -150,7 +150,7 @@
             <img src="/appoinment/stomach.jpg" alt=""> 
           </div>
          <a href=""><i class="fa-solid fa-bacteria"></i> Gastroenterology </a>
-         <p>The Gastroenterology Department specializes in the diagnosis and treatment of digestive system disorders. Gastroenterologists address conditions such as gastrointestinal (GI) bleeding, inflammatory bowel diseases (IBD), liver diseases, and gastrointestinal cancers. Diagnostic procedures like endoscopy and colonoscopy are commonly used to assess and treat various GI issues.</p>
+       <!--  <p>The Gastroenterology Department specializes in the diagnosis and treatment of digestive system disorders. Gastroenterologists address conditions such as gastrointestinal (GI) bleeding, inflammatory bowel diseases (IBD), liver diseases, and gastrointestinal cancers. Diagnostic procedures like endoscopy and colonoscopy are commonly used to assess and treat various GI issues.</p> -->
       </div>
 
       <div class="box">
@@ -158,7 +158,7 @@
             <img src="/appoinment/immuno.jpg" alt=""> 
           </div>
          <a href=""><i class="fa-solid fa-dna"></i> Immunology </a>
-         <p>The Immunology Department focuses on the study and treatment of disorders related to the immune system. Immunologists may diagnose and manage autoimmune diseases, allergies, and immunodeficiencies. They work to understand the body's immune response and develop strategies to modulate or enhance it. Immunology is crucial in addressing conditions where the immune system may attack the body's own cells or fail to protect against infections.</p>
+       <!--  <p>The Immunology Department focuses on the study and treatment of disorders related to the immune system. Immunologists may diagnose and manage autoimmune diseases, allergies, and immunodeficiencies. They work to understand the body's immune response and develop strategies to modulate or enhance it. Immunology is crucial in addressing conditions where the immune system may attack the body's own cells or fail to protect against infections.</p> -->
       </div>
 
    </div>
@@ -269,8 +269,8 @@
    <h2>Book Appointment</h2>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       
-        <label for="uhid">UHID:</label>
-        <input type="text" name="uhid" placeholder="Enter UHID" required>
+        <label for="username">USERNAME:</label>
+        <input type="text" name="username" placeholder="Enter USERNAME" required>
 
         <label for="fullname">Full Name:</label>
         <input type="text" name="fullname" required>
@@ -339,7 +339,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $uhid = $_POST["uhid"];
+    $username = $_POST["username"];
     $fullname = $_POST["fullname"];
     $dob = $_POST["dob"];
     $gender = $_POST["gender"];
@@ -350,18 +350,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $doctor = $_POST["doctor"];
 
     
-    $checkSql = "SELECT * FROM patient WHERE uhid = '$uhid'";
+    $checkSql = "SELECT * FROM patient WHERE username = '$useranme'";
     $result = $conn->query($checkSql);
 
     if ($result->num_rows > 0) {
-        echo "<p>Your appointment has already been taken!</p>";
+      echo "<p>This username is already taken! Please use a different one.<p>";
     } else {
        
-        $sql = "INSERT INTO patient (uhid, `Full Name`, `Date of Birth`, Gender, `Phone-Number`, `Date`, `Time`, `Select Department`, `Select Doctor`)
-                VALUES ('$uhid', '$fullname', '$dob', '$gender', '$phone', '$date', '$time', '$department', '$doctor')";
+        $sql = "INSERT INTO patient (username, `Full Name`, `Date of Birth`, Gender, `Phone-Number`, `Date`, `Time`, `Select Department`, `Select Doctor`)
+                VALUES ('$username', '$fullname', '$dob', '$gender', '$phone', '$date', '$time', '$department', '$doctor')";
 
         if ($conn->query($sql) === TRUE) {
-            echo "<p>Your appointment has been taken!</p>";
+         echo "<script>alert('Your appointment has been taken!');</script>";
         } else {
             echo "<p>Something went wrong. Please try again later.</p>";
         }
@@ -370,7 +370,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-
 
 
 </div>
