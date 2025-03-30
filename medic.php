@@ -427,7 +427,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
    </section>
 
-
+<!--
    <script>
       const cookieBox = document.querySelector(".wrapper"),
       acceptBtn = cookieBox.querySelector("button");
@@ -442,7 +442,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       let checkCookie = document.cookie.indexOf("CookieBy=CardiacMedic"); 
       checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
     </script>
-
+-->
 
 
 
@@ -491,7 +491,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 <p> Dhaka, Bangladesh </p>
 <div class="details">
-   <a href=""><i class="fa fa-phone"></i> Tel: +1-4200 </a>
+   <a href=""><i class="fa fa-phone"></i> Tel: (+1) - 4200 </a>
 <p>Email: support@cardiacmedic.com</p>
 </div>
 </div>
