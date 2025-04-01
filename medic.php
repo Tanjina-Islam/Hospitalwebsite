@@ -377,7 +377,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="topHeadlines" id="blog">
    <div class="left">
        <div class="title">
-         <h2>Blog <span class="news-title">News</span> & Media</h2>
+         <h2>Blog, <span class="news-title">News</span> & Media</h2>
        </div>
        <div class="img" id="breakingImg">
          <img src="/appoinment/News.svg" alt="">  
